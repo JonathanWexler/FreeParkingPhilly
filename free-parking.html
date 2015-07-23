@@ -1,0 +1,42 @@
+<head>
+	<title>Free Parking Wednesdays</title>
+</head>
+
+<body>
+
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3 text-center">
+          <h1>Is it free to park here?</h1>
+
+      </div>
+  </div>
+  <div class="row">
+     <div class="col-sm-6 col-sm-offset-3 text-center">
+       {{> hello}}
+   </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3 text-center blue">
+   {{> parking}}
+</div>
+</div>
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3 text-center ">
+   <div class="map-container">
+    {{> googleMap name="exampleMap" options=exampleMapOptions}}
+</div>
+</div>
+</div>
+
+
+</body>
+
+<template name="hello">
+   
+	
+</template>
+
+<template name="parking">
+ <h1>You {{result}} park for free!</h1>
+</template>
