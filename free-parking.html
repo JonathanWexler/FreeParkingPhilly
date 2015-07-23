@@ -5,38 +5,72 @@
 <body>
 
 	<div class="row">
-		<div class="col-sm-6 col-sm-offset-3 text-center">
-          <h1>Is it free to park here?</h1>
+		<div class="col-sm-8 col-sm-offset-2 text-center blue">
+          <h1>Is it free to park in Philly?</h1>
 
       </div>
   </div>
   <div class="row">
-     <div class="col-sm-6 col-sm-offset-3 text-center">
-       {{> hello}}
+     <div class="col-sm-8 col-sm-offset-2 text-center">
+       {{> info}}
    </div>
 </div>
+<br/>
 
 <div class="row">
-  <div class="col-sm-6 col-sm-offset-3 text-center blue">
+  <div class="col-sm-8 col-sm-offset-2 text-center {{color}} ">
    {{> parking}}
 </div>
 </div>
 <div class="row">
-  <div class="col-sm-6 col-sm-offset-3 text-center ">
-   <div class="map-container">
-    {{> googleMap name="exampleMap" options=exampleMapOptions}}
+  <div class="col-sm-8 col-sm-offset-2 text-center ">
+    <div class="map-container">
+        {{> googleMap name="phillyParkingMap" options=mapOptions}}
+    </div>
 </div>
 </div>
+
+<div class="row ">
+    <div class="col-sm-8 col-sm-offset-2 text-center orange ">
+        <div class="col-sm-4 text-center  ">
+            <h2>When parking is free:</h2>
+            <a href="http://www.philapark.org/2012/03/free-meter-parking-on-wednedays/">source</a>
+        </div>
+        <div class="col-sm-4 text-center  ">
+            <h3>Every Wednesday</h3>
+            <h5>Between Bainbridge and Spring Garden Streets.</h5>
+        </div>
+        <div class="col-sm-4 text-center  ">
+            <h3>The first Friday of each month</h3>
+            <h5>Between Callowhill and Walnut Streets and between Front and 5th Streets.</h5>
+        </div>
+    </div>
 </div>
 
 
 </body>
 
-<template name="hello">
-   
-	
+<template name="info">
+    {{#if info}}
+        {{#if beforeFive}}
+        <h1>Free Parking Today! in {{timer}}.</h1>
+        {{else}}
+        <h1>Free Parking Today! Stay off odd numbered streets until 6:30pm. </h1>
+        {{/if}}
+    {{else}}
+            {{#if oneDay }}
+                 <h1>Try tomorrow, after 6:30pm. </h1>
+            {{else}}
+            
+                 <h1>Try again on {{nextTime}}, after 5:00pm. </h1>
+
+            {{/if}}
+    {{/if}}
+
 </template>
 
 <template name="parking">
- <h1>You {{result}} park for free!</h1>
+ <h1>You {{result}} park for free!</h1> <h6>Where you are now.</h6>
 </template>
+
+
