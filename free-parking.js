@@ -188,7 +188,8 @@ Template.registerHelper('nextTime', function() {
 
 });
 Template.registerHelper('color', function() {
-  return ((firstFriday && inFSpace) || (wednesday && inWSpace)) ? 'green' : 'blue';
+  // return ((firstFriday && inFSpace) || (wednesday && inWSpace)) ? 'green' : 'blue';
+  return ((Session.get('friday') || (Session.get('wednesday')) ? 'green' : 'blue';
 
 });
 Template.registerHelper('beforeFive', function() {
